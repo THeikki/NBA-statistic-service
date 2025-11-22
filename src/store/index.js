@@ -13,7 +13,8 @@ export default createStore({
       team: '',
       position: '',
       games: '',
-      totalRb: '',
+      offensiveRb: '',
+      defensiveRb: '',
       assists: '',
       steals: '',
       blocks: '',
@@ -159,7 +160,7 @@ export default createStore({
           break
       }
     },
-    determinePositionFromAbbrevation() {
+    determinePositionFromAbbreviation() {
       switch (this.state.playerSeasonStats.position) {
         case 'PG':
           this.state.playerSeasonStats.position = 'Pelintekijä'
@@ -198,7 +199,7 @@ export default createStore({
             )
             commit('setPlayerSeasonStats', playerWithMostPoints)
             dispatch('determineTeamNameFromAbbreviation')
-            dispatch('determinePositionFromAbbrevation')
+            dispatch('determinePositionFromAbbreviation')
             this.state.showLoadingMessage = false
             this.state.showSeasonStatistics = true
           } else {
